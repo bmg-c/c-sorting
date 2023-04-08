@@ -8,7 +8,7 @@ int main () {
     srand(time(NULL));
 
     int n = 10; int *a;
-    a = (int*)malloc(n*sizeof(int));
+    a = (int*)malloc(n * sizeof(int));
 
     for (int i = 0; i < n; i++) {
         a[i] = rand() % 101 - 50;
