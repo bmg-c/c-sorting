@@ -31,7 +31,7 @@ int run() {
     int is_working = True;
     for (int size = 100; size <= 1000; size += 100) {
         int *array = create_rand_arr(size);
-        ShellSort(size, array);
+        quickSort(size, array);
 
         if (is_arr_sorted(array, size) == False) {
             is_working = False;
