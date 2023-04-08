@@ -12,3 +12,4 @@ void bubbleSort(int size, int *array);
 
 void combSort(int size, int *array);
 
+void quickSort (int size, int *array);
