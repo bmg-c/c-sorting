@@ -13,3 +13,5 @@ void bubbleSort (int size, int *array);
 void combSort (int size, int *array);
 
 void quickSort (int size, int *array);
+
+void mergeSort (int size, int *array);

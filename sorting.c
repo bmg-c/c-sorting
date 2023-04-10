@@ -186,3 +186,43 @@ void quickSort (int size, int *array) {
         quickSort(size - i, &array[i]);
     }
 }
+
+
+void merge(int *arr, int first, int mid, int last) {
+    int *arr_result = (int *)malloc(sizeof(int) * (last - first + 1));
+    int i = first, j = mid, k = 0;
+
+    while (i < mid && j <= last) {
+        if (arr[i] > arr[j]) {
+            arr_result[k] = arr[j];
+            j++, k++;
+        } else if (arr[i] < arr[j]) {
+            arr_result[k] = arr[i];
+            i++, k++;
+        } else {
+            arr_result[k] = arr[i];
+            arr_result[k + 1] = arr[j];
+            i++, j++, k += 2;
+        }
+    }
+
+    for (; i < mid; i++, k++)
+        arr_result[k] = arr[i];
+    for (; j <= last; j++, k++)
+        arr_result[k] = arr[j];
+
+    for (k = 0; k <= (last - first); k++)
+        arr[k + first] = arr_result[k];
+
+    free(arr_result);
+}
+
+void mergeSort(int size, int *arr) {
+    for (int h = 1; h <= size; h *= 2)
+        for (int i = 0; i <= size - h; i += 2 * h) {
+            int last = i + 2 * h - 1;
+            if (last >= size)
+                last = size - 1;
+            merge(arr, i, i + h, last);
+        }
+}
